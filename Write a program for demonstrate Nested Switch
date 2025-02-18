@@ -1,0 +1,50 @@
+mport java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        
+        System.out.println("Enter a number (1-3) to select a category: ");
+        int category = s.nextInt();
+        
+        switch (category) {
+            case 1:
+                System.out.println("Category 1 selected");
+                System.out.println("Enter a number (1-2) for a subcategory: ");
+                int subCategory1 = s.nextInt();
+                
+                switch (subCategory1) {
+                    case 1:
+                        System.out.println("Subcategory 1.1 selected");
+                        break;
+                    case 2:
+                        System.out.println("Subcategory 1.2 selected");
+                        break;
+                    default:
+                        System.out.println("Invalid subcategory");
+                }
+                break;
+            case 2:
+                System.out.println("Category 2 selected");
+                System.out.println("Enter a number (1-2) for a subcategory: ");
+                int subCategory2 = s.nextInt();
+                
+                switch (subCategory2) {
+                    case 1:
+                        System.out.println("Subcategory 2.1 selected");
+                        break;
+                    case 2:
+                        System.out.println("Subcategory 2.2 selected");
+                        break;
+                    default:
+                        System.out.println("Invalid subcategory");
+                }
+                break;
+            case 3:
+                System.out.println("Category 3 selected");
+                break;
+            default:
+                System.out.println("Invalid category");
+        }
+    }
+}
