@@ -1,0 +1,19 @@
+public class Main {
+    public static void main(String[] args) {
+        int intVal = 100;
+        double doubleVal = intVal;
+        System.out.println("Implicit casting (int to double): " + doubleVal);
+
+        doubleVal = 9.78;
+        intVal = (int) doubleVal;
+        System.out.println("Explicit casting (double to int): " + intVal);
+
+        char charVal = 'A';
+        int asciiValue = (int) charVal;
+        System.out.println("Char to int (ASCII value of 'A'): " + asciiValue);
+
+        int num = 65;
+        char charFromInt = (char) num;
+        System.out.println("Int to char (65 to 'A'): " + charFromInt);
+    }
+}
