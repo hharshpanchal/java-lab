@@ -1,0 +1,77 @@
+class Account {
+    static int totalAccounts = 0;
+    protected double balance;  
+    private int accountNumber;
+
+   
+    public Account(int accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
+        totalAccounts++;
+    }
+
+    
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: $" + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: $" + amount);
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient funds.");
+        }
+    }
+
+    
+    public void displayBalance() {
+        System.out.println("Account Number: " + accountNumber + " | Balance: $" + balance);
+    }
+
+   
+    public static void showTotalAccounts() {
+        System.out.println("Total number of accounts: " + totalAccounts);
+    }
+}
+
+class SavingsAccount extends Account {
+    private double interestRate;
+
+    
+    public SavingsAccount(int accountNumber, double initialBalance, double interestRate) {
+        super(accountNumber, initialBalance);
+        this.interestRate = interestRate;
+    }
+
+    
+    public void calculateInterest() {
+        double interest = balance * interestRate / 100;
+        System.out.println("Interest earned: $" + interest);
+        deposit(interest);  
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Account acc1 = new Account(101, 5000);
+        acc1.deposit(1500);
+        acc1.withdraw(2000);
+        acc1.displayBalance();
+        
+        
+        SavingsAccount savAcc1 = new SavingsAccount(102, 10000, 5);
+        savAcc1.deposit(2000);
+        savAcc1.calculateInterest(); 
+        savAcc1.displayBalance();
+        
+        
+        Account.showTotalAccounts();
+    }
+}
