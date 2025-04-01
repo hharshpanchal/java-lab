@@ -1,0 +1,27 @@
+public class MainClass {
+    public static void main(String[] args) {
+        // Accessing class from the same package
+        InternalClass internalObj = new InternalClass();
+        internalObj.displayInternal();
+
+        // Accessing class from an external package
+        ExternalClass externalObj = new ExternalClass();
+        externalObj.displayExternal();
+    }
+}
+
+// Remove package declarations since most online compilers don't support them
+
+// Internal class (previously in mypackage)
+class InternalClass {
+    public void displayInternal() {
+        System.out.println("This is an internal class from the same package.");
+    }
+}
+
+// External class (previously in externalpackage)
+class ExternalClass {
+    public void displayExternal() {
+        System.out.println("This is an external class from another package.");
+    }
+}
