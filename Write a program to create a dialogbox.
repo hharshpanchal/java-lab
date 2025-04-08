@@ -1,0 +1,132 @@
+Write a program to create a dialogbox.
+import java.util.Scanner;
+
+public class DialogBoxExampleConsole {
+    public static void main(String[] args) {
+        System.out.println("Hello! This is a dialog box (console version).");
+
+        // Optional: pause to simulate a dialog interaction
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Press Enter to continue...");
+        scanner.nextLine();
+        scanner.close();
+    }
+}
+ 
+Write a program to create a menue using the frame
+import java.util.Scanner;
+
+public class MenuExampleConsole {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+
+        while (running) {
+            System.out.println("====== MENU ======");
+            System.out.println("1. New");
+            System.out.println("2. Open");
+            System.out.println("3. Exit");
+            System.out.print("Choose an option (1-3): ");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("New File Created\n");
+                    break;
+                case 2:
+                    System.out.println("Open File Dialog\n");
+                    break;
+                case 3:
+                    System.out.println("Exiting...");
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter 1, 2, or 3.\n");
+            }
+        }
+
+        scanner.close();
+    }
+}
+Program to draw the line, rectangle, 0vel, text using the graphiuc method
+import javax.swing.JFrame;
+import java.awt.Graphics;
+
+public class GraphicsDemo extends JFrame {
+    public GraphicsDemo() {
+        setTitle("Graphics Demo");
+        setSize(500, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // Center the window
+        setVisible(true);
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        // Draw a line
+        g.drawLine(50, 50, 200, 50);
+
+        // Draw a rectangle
+        g.drawRect(50, 100, 150, 80);
+
+        // Draw an oval inside the same rectangle dimensions
+        g.drawOval(250, 100, 150, 80);
+
+        // Draw text
+        g.drawString("Hello, Graphics!", 50, 250);
+    }
+
+    public static void main(String[] args) {
+        new GraphicsDemo();
+    }
+}
+ 
+
+
+Program to implement the flow layout and boarder layout
+
+import javax.swing.*;
+import java.awt.*;
+
+public class LayoutExample extends JFrame {
+
+    public LayoutExample() {
+        setTitle("FlowLayout and BorderLayout Example");
+        setSize(500, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new GridLayout(1, 2)); // Split window into 2 columns
+
+        // Panel with FlowLayout
+        JPanel flowPanel = new JPanel();
+        flowPanel.setLayout(new FlowLayout());
+        flowPanel.setBorder(BorderFactory.createTitledBorder("FlowLayout"));
+
+        flowPanel.add(new JButton("Button 1"));
+        flowPanel.add(new JButton("Button 2"));
+        flowPanel.add(new JButton("Button 3"));
+
+        // Panel with BorderLayout
+        JPanel borderPanel = new JPanel();
+        borderPanel.setLayout(new BorderLayout());
+        borderPanel.setBorder(BorderFactory.createTitledBorder("BorderLayout"));
+
+        borderPanel.add(new JButton("North"), BorderLayout.NORTH);
+        borderPanel.add(new JButton("South"), BorderLayout.SOUTH);
+        borderPanel.add(new JButton("East"), BorderLayout.EAST);
+        borderPanel.add(new JButton("West"), BorderLayout.WEST);
+        borderPanel.add(new JButton("Center"), BorderLayout.CENTER);
+
+        // Add both panels to the frame
+        add(flowPanel);
+        add(borderPanel);
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new LayoutExample();
+    }
+}
+
